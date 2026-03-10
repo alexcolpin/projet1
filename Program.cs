@@ -1,68 +1,40 @@
 ﻿using System;
 
-class Car
+public class Student
 {
-    // Propriétés
-    public string Brand { get; set; }
-    public string Model { get; set; }
-    public int Year { get; set; }
+    private static int compteur = 1;
 
-    // Constructeur vide
-    public Car()
+    public int Id { get; private set; }
+    public string Name { get; set; }
+    public double Average { get; set; }
+    public bool IsScholarshipHolder { get; set; }
+
+    // Constructeur sans paramètres
+    public Student()
     {
-        Brand = "Inconnue";
-        Model = "Inconnu";
-        Year = 0;
+        Id = compteur;
+        compteur++;
     }
 
-    // Constructeur avec brand
-    public Car(string brand)
+    // Constructeur complet
+    public Student(string name, double average, bool isScholarshipHolder)
     {
-        Brand = brand;
+        Id = compteur;
+        compteur++;
+
+        Name = name;
+        Average = average;
+        IsScholarshipHolder = isScholarshipHolder;
     }
 
-    // Constructeur avec brand et model
-    public Car(string brand, string model)
+    // Constructeur partiel
+    public Student(string name, double average)
     {
-        Brand = brand;
-        Model = model;
-    }
+        Id = compteur;
+        compteur++;
 
-    // Constructeur avec brand, model et year
-    public Car(string brand, string model, int year)
-    {
-        Brand = brand;
-        Model = model;
-        Year = year;
-    }
-
-    // Constructeur du défi : brand + year
-    public Car(string brand, int year)
-    {
-        Brand = brand;
-        Year = year;
-    }
-
-    // Méthode pour afficher la voiture
-    public void Afficher()
-    {
-        Console.WriteLine(Brand + " " + Model + " " + Year);
+        Name = name;
+        Average = average;
     }
 }
-class Program
-{
-    static void Main(string[] args)
-    {
-        Car car1 = new Car();
-        Car car2 = new Car("Toyota");
-        Car car3 = new Car("Toyota", "Corolla");
-        Car car4 = new Car("Toyota", "Corolla", 2020);
-        Car car5 = new Car("Ford");
 
-        car1.Afficher();
-        car2.Afficher();
-        car3.Afficher();
-        car4.Afficher();
-        car5.Afficher();
-    }
-}
